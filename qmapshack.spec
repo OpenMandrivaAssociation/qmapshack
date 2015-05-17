@@ -1,0 +1,75 @@
+Name: qmapshack
+Version: 1.2.0
+Release: 1%{?dist}
+Summary: GPS mapping and management tool
+
+Group: Applications/Communications
+License: GPLv3+
+URL: https://bitbucket.org/maproom/qmapshack/wiki/Home
+Source0: https://bitbucket.org/maproom/%{name}/downloads/%{name}-%{version}.tar.gz
+# needed for F-20
+Patch0: %{name}-0.11.0-cmake28.patch
+Requires: proj-epsg
+
+BuildRequires: cmake
+BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Xml)
+BuildRequires: pkgconfig(Qt5Script)
+BuildRequires: pkgconfig(Qt5Sql)
+BuildRequires: pkgconfig(Qt5WebKitWidgets)
+BuildRequires: qt5-qttools-devel
+BuildRequires: proj-devel
+BuildRequires: gdal-devel
+BuildRequires: desktop-file-utils
+
+
+%description
+QMapShack provides a versatile tool for GPS maps in GeoTiff format as well as
+Garmin's img vector map format. You can also view and edit your GPX tracks.
+QMapShack is the successor of QLandkarteGT.
+
+Main features:
+- use of several work-spaces
+- use several maps on a work-space
+- handle data project-oriented
+- exchange data with the device by drag-n-drop
+
+
+%prep
+%setup -q
+%patch0 -p1
+
+# create build directory
+mkdir build
+
+
+%build
+cd build
+%cmake -DBUILD_SHARED_LIBS:BOOL=OFF ..
+make VERBOSE=1 %{?_smp_mflags}
+
+
+%install
+cd build
+make install DESTDIR=%{buildroot}
+
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
+
+
+%files
+%license LICENSE
+%doc changelog.txt
+%{_bindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/pixmaps/QMapShack.png
+%{_datadir}/%{name}
+%{_mandir}/man1/%{name}.*
+
+
+%changelog
+* Tue Apr 14 2015 Dan Horák <dan[at]danny.cz> - 1.2.0-1
+- update to 1.2.0
+
+* Sun Apr 05 2015 Dan Horák <dan[at]danny.cz> - 1.1.0-1
+- initial Fedora version
