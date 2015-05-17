@@ -17,6 +17,9 @@ BuildRequires: pkgconfig(Qt5Xml)
 BuildRequires: pkgconfig(Qt5Script)
 BuildRequires: pkgconfig(Qt5Sql)
 BuildRequires: pkgconfig(Qt5WebKitWidgets)
+BuildRequires: qt5-designer
+BuildRequires: qt5-linguist
+BuildRequires: qt5-linguist-tools
 BuildRequires: qt5-devel
 BuildRequires: qt5-tools
 BuildRequires: proj-devel
