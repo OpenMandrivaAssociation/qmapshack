@@ -58,6 +58,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %files
 %doc LICENSE changelog.txt
 %{_bindir}/%{name}
+%{_bindir}/planetsplitter
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/QMapShack.png
 %{_datadir}/%{name}
