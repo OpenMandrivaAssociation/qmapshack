@@ -1,5 +1,5 @@
 Name: qmapshack
-Version: 1.2.2
+Version: 1.3.0
 Release: 1
 Summary: GPS mapping and management tool
 
