@@ -1,5 +1,5 @@
 Name: qmapshack
-Version: 1.3.0
+Version: 1.5.1
 Release: 1
 Summary: GPS mapping and management tool
 
@@ -8,7 +8,10 @@ License: GPLv3+
 URL: https://bitbucket.org/maproom/qmapshack/wiki/Home
 Source0: https://bitbucket.org/maproom/%{name}/downloads/%{name}-%{version}.tar.gz
 Patch1:	qmapshack-0.11.0-cmake28.patch
+Patch2:	qmapshack-1.3.1-system-routino.diff
 Requires: proj
+Requires: gdal
+Requires: routino
 
 BuildRequires: cmake
 BuildRequires: pkgconfig(Qt5Widgets)
@@ -25,7 +28,8 @@ BuildRequires: qt5-qttools
 BuildRequires: proj-devel
 BuildRequires: gdal-devel
 BuildRequires: desktop-file-utils
-
+BuildRequires: routino-devel
+BuildRequires: routino
 
 %description
 QMapShack provides a versatile tool for GPS maps in GeoTiff format as well as
@@ -58,9 +62,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %files
 %doc LICENSE changelog.txt
 %{_bindir}/%{name}
-%{_bindir}/planetsplitter
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/QMapShack.png
 %{_datadir}/%{name}
 %{_mandir}/man1/%{name}.*
-
+%{_iconsdir}/*/*/*/QMapShack.*

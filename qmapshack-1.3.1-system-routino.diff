@@ -1,0 +1,30 @@
+From 5fbe289166a5fe30800aa09ee0b5b741044c2c39 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Dan=20Hor=C3=A1k?= <dan@danny.cz>
+Date: Thu, 2 Jul 2015 11:33:44 +0200
+Subject: [PATCH] use planetsplitter from routino package
+
+
+diff -Naurp qmapshack-1.4.0/src/tool/CRoutinoDatabaseBuilder.cpp qmapshack-1.4.0.oden/src/tool/CRoutinoDatabaseBuilder.cpp
+--- qmapshack-1.4.0/src/tool/CRoutinoDatabaseBuilder.cpp	2015-10-24 10:37:10.000000000 +0200
++++ qmapshack-1.4.0.oden/src/tool/CRoutinoDatabaseBuilder.cpp	2015-11-17 10:41:56.055999532 +0100
+@@ -155,8 +155,8 @@ void CRoutinoDatabaseBuilder::finished(i
+         args << QString("--tagging=%1").arg(instance->routinoPath("tagging.xml"));
+         args << "--process-only";
+ 
+-        stdOut("planetsplitter " +  args.join(" ") + "\n");
+-        cmd.start("planetsplitter", args);
++        stdOut("routino-planetsplitter " +  args.join(" ") + "\n");
++        cmd.start("routino-planetsplitter", args);
+ 
+         last = true;
+     }
+@@ -181,7 +181,7 @@ void CRoutinoDatabaseBuilder::finished(i
+         sourceFiles.pop_front();
+ 
+ 
+-        stdOut("planetsplitter " +  args.join(" ") + "\n");
+-        cmd.start("planetsplitter", args);
++        stdOut("routino-planetsplitter " +  args.join(" ") + "\n");
++        cmd.start("routino-planetsplitter", args);
+     }
+ }
