@@ -1,6 +1,6 @@
 Name: qmapshack
 Version: 1.5.1
-Release: 1
+Release: 2
 Summary: GPS mapping and management tool
 
 Group: Communications
