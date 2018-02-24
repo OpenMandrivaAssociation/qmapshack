@@ -7,7 +7,7 @@ Subject: [PATCH] use planetsplitter from routino package
 diff -Naurp qmapshack-1.4.0/src/tool/CRoutinoDatabaseBuilder.cpp qmapshack-1.4.0.oden/src/tool/CRoutinoDatabaseBuilder.cpp
 --- qmapshack-1.4.0/src/tool/CRoutinoDatabaseBuilder.cpp	2015-10-24 10:37:10.000000000 +0200
 +++ qmapshack-1.4.0.oden/src/tool/CRoutinoDatabaseBuilder.cpp	2015-11-17 10:41:56.055999532 +0100
-@@ -155,8 +155,8 @@ void CRoutinoDatabaseBuilder::finished(i
+@@ -154,8 +154,8 @@
          args << QString("--tagging=%1").arg(instance->routinoPath("tagging.xml"));
          args << "--process-only";
  
@@ -18,7 +18,7 @@ diff -Naurp qmapshack-1.4.0/src/tool/CRoutinoDatabaseBuilder.cpp qmapshack-1.4.0
  
          last = true;
      }
-@@ -181,7 +181,7 @@ void CRoutinoDatabaseBuilder::finished(i
+@@ -180,8 +180,8 @@
          sourceFiles.pop_front();
  
  
@@ -28,3 +28,4 @@ diff -Naurp qmapshack-1.4.0/src/tool/CRoutinoDatabaseBuilder.cpp qmapshack-1.4.0
 +        cmd.start("routino-planetsplitter", args);
      }
  }
+ 

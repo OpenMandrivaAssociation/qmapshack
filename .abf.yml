@@ -2,5 +2,6 @@ removed_sources:
   qmapshack-1.2.0.tar.gz: ec79fc54a8cd1ad64d1b18e211379d9eaf724d08
   qmapshack-1.2.2.tar.gz: 751e99e50c39889245329d4864383d20fa02331c
   qmapshack-1.3.0.tar.gz: df25eef00a98b485b8addab548b49ceb43b9f365
-sources:
   qmapshack-1.5.1.tar.gz: 185079d718e3f5f9d4d50a82364efbceb475856c
+sources:
+  qmapshack-1.10.0.tar.gz: fa1783db4eb5e5a533f58c2401d5834c609753a7

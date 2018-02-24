@@ -1,13 +1,12 @@
 Name: qmapshack
-Version: 1.5.1
-Release: 2
+Version: 1.10.0
+Release: 1
 Summary: GPS mapping and management tool
 
 Group: Communications
 License: GPLv3+
 URL: https://bitbucket.org/maproom/qmapshack/wiki/Home
 Source0: https://bitbucket.org/maproom/%{name}/downloads/%{name}-%{version}.tar.gz
-Patch1:	qmapshack-0.11.0-cmake28.patch
 Patch2:	qmapshack-1.3.1-system-routino.diff
 Requires: proj
 Requires: gdal
@@ -26,6 +25,7 @@ BuildRequires: qt5-linguist-tools
 BuildRequires: qt5-devel
 BuildRequires: qt5-qttools
 BuildRequires: proj-devel
+BuildRequires: quazip-devel
 BuildRequires: gdal-devel
 BuildRequires: desktop-file-utils
 BuildRequires: routino-devel
@@ -46,6 +46,7 @@ Main features:
 %prep
 %setup -q
 %apply_patches
+sed -ie 's/quazip5/quazip/' cmake/Modules/FindQuaZip.cmake
 
 %build
 %cmake -DBUILD_SHARED_LIBS:BOOL=OFF ..
