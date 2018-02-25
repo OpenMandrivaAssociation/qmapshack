@@ -8,6 +8,7 @@ License: GPLv3+
 URL: https://bitbucket.org/maproom/qmapshack/wiki/Home
 Source0: https://bitbucket.org/maproom/%{name}/downloads/%{name}-%{version}.tar.gz
 Patch2:	qmapshack-1.3.1-system-routino.diff
+Patch3:	qmapshack-1.10-0-includes.patch
 Requires: proj
 Requires: gdal
 Requires: routino

@@ -1,0 +1,55 @@
+diff -ur qmapshack-1.10.0.orig/src/dem/CDemVRT.h qmapshack-1.10.0/src/dem/CDemVRT.h
+--- qmapshack-1.10.0.orig/src/dem/CDemVRT.h	2017-12-19 16:03:46.000000000 +0000
++++ qmapshack-1.10.0/src/dem/CDemVRT.h	2018-02-25 00:15:13.118306887 +0000
+@@ -20,6 +20,7 @@
+ #define CDEMVRT_H
+ 
+ #include "dem/IDem.h"
++#include "canvas/IDrawContext.h"
+ 
+ #include <QMutex>
+ 
+Only in qmapshack-1.10.0/src/dem: CDemVRT.h~
+Only in qmapshack-1.10.0/src/dem: .CDemVRT.h.un~
+diff -ur qmapshack-1.10.0.orig/src/dem/IDem.h qmapshack-1.10.0/src/dem/IDem.h
+--- qmapshack-1.10.0.orig/src/dem/IDem.h	2017-12-19 16:03:46.000000000 +0000
++++ qmapshack-1.10.0/src/dem/IDem.h	2018-02-25 00:14:08.792498868 +0000
+@@ -20,6 +20,8 @@
+ #define IDEM_H
+ 
+ #include "canvas/IDrawObject.h"
++#include "canvas/IDrawContext.h"
++
+ #include <QObject>
+ #include <QPointer>
+ #include <proj_api.h>
+Only in qmapshack-1.10.0/src/dem: IDem.h~
+Only in qmapshack-1.10.0/src/dem: .IDem.h.un~
+diff -ur qmapshack-1.10.0.orig/src/mouse/line/CLineOpSelectRange.h qmapshack-1.10.0/src/mouse/line/CLineOpSelectRange.h
+--- qmapshack-1.10.0.orig/src/mouse/line/CLineOpSelectRange.h	2017-12-19 16:03:47.000000000 +0000
++++ qmapshack-1.10.0/src/mouse/line/CLineOpSelectRange.h	2018-02-25 00:14:44.224291265 +0000
+@@ -24,6 +24,8 @@
+ #include <QPointer>
+ 
+ class CScrOptRangeLine;
++class QKeyEvent;
++class QWheelEvent;
+ 
+ class CLineOpSelectRange : public ILineOp
+ {
+Only in qmapshack-1.10.0/src/mouse/line: CLineOpSelectRange.h~
+Only in qmapshack-1.10.0/src/mouse/line: .CLineOpSelectRange.h.un~
+diff -ur qmapshack-1.10.0.orig/src/mouse/line/ILineOp.h qmapshack-1.10.0/src/mouse/line/ILineOp.h
+--- qmapshack-1.10.0.orig/src/mouse/line/ILineOp.h	2017-12-19 16:03:47.000000000 +0000
++++ qmapshack-1.10.0/src/mouse/line/ILineOp.h	2018-02-25 00:13:27.953891466 +0000
+@@ -31,6 +31,8 @@
+ class CCanvas;
+ class QPainter;
+ class IMouseEditLine;
++class QWheelEvent;
++class QKeyEvent;
+ 
+ class ILineOp : public QObject
+ {
+Only in qmapshack-1.10.0/src/mouse/line: ILineOp.h~
+Only in qmapshack-1.10.0/src/mouse/line: .ILineOp.h.un~
