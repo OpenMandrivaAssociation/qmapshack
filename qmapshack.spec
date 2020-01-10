@@ -47,7 +47,7 @@ Main features:
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 sed -ie 's/quazip5/quazip/' cmake/Modules/FindQuaZip.cmake
 
 %build
