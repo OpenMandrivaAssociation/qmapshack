@@ -1,3 +1,7 @@
+# For debugsource package
+%global _empty_manifest_terminate_build 0
+%define disable_lto 1
+
 Summary:	GPS mapping and management tool
 Name:		qmapshack
 Version:	1.16.1
@@ -58,6 +62,7 @@ Main features:
 %autosetup -p1 -n %{name}-V_%{version}
 
 %build
+#export CXXFLAGS="${CXXFLAGS} -O2"
 %cmake \
 	-DBUILD_SHARED_LIBS:BOOL=OFF \
 	-G Ninja
@@ -65,3 +70,4 @@ Main features:
 
 %install
 %ninja_install -C build
+
