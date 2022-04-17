@@ -23,6 +23,7 @@ BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	pkgconfig(gdal)
 BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	qt5-assistant
 BuildRequires:	routino-devel
 # unpackaged yet
 #BuildRequires: alglib-devel
