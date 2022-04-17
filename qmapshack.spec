@@ -8,6 +8,7 @@ URL:		https://github.com/Maproom/%{name}/wiki
 Source0:	https://github.com/Maproom/qmapshack/archive/V_%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:	cmake
+BuildRequires:	ninja
 BuildRequires:	cmake(proj)
 BuildRequires:	cmake(QuaZip-Qt5)
 BuildRequires:	cmake(Qt5Core)
