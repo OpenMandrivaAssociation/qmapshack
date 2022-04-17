@@ -41,12 +41,14 @@ Main features:
 
 %files
 %doc LICENSE changelog.txt
-%{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/QMapShack.png
+%{_bindir}/*
 %{_datadir}/%{name}
-%{_mandir}/man1/%{name}.*
-%{_iconsdir}/*/*/*/QMapShack.*
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_datadir}/pixmaps/*.xpm
+%{_datadir}/applications/*.desktop
+%{_datadir}/qmt_rgb2pct/translations/*qm
+%{_mandir}/man1/*.1*
+%{_docdir}/HTML/QMSHel*
 
 #---------------------------------------------------------------------------
 
