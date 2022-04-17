@@ -46,9 +46,11 @@ Main features:
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/pixmaps/*.png
 %{_datadir}/applications/*.desktop
+%{_datadir}/qmaptool/translations/*qm
 %{_datadir}/qmt_rgb2pct/translations/*qm
 %{_mandir}/man1/*.1*
-%{_docdir}/HTML/QMSHel*
+%{_docdir}/HTML/*qch
+%{_docdir}/HTML/*qhc
 
 #---------------------------------------------------------------------------
 
