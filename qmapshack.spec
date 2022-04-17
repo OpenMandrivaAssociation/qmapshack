@@ -62,7 +62,7 @@ Main features:
 %autosetup -p1 -n %{name}-V_%{version}
 
 %build
-#export CXXFLAGS="${CXXFLAGS} -O2"
+export CXXFLAGS="$CXXFLAGS -O2"
 %cmake \
 	-DBUILD_SHARED_LIBS:BOOL=OFF \
 	-G Ninja
