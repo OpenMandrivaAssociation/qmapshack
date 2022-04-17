@@ -61,4 +61,4 @@ Main features:
 %ninja_build
 
 %install
-%ninja_install -c build
+%ninja_install -C build
