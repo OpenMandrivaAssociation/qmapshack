@@ -55,8 +55,7 @@ Main features:
 #---------------------------------------------------------------------------
 
 %prep
-%autosetup -p1  -n %{name}-V_%{version}
-#sed -i -e 's/quazip5/quazip/' cmake/Modules/FindQuaZip.cmake
+%autosetup -p1 -n %{name}-V_%{version}
 
 %build
 %cmake \
