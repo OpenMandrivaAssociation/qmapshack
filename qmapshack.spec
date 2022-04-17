@@ -1,3 +1,6 @@
+# For debugsource package
+%global _empty_manifest_terminate_build 0
+
 Summary:	GPS mapping and management tool
 Name:		qmapshack
 Version:	1.16.1
