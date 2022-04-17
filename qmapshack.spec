@@ -44,7 +44,7 @@ Main features:
 %{_bindir}/*
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/*.png
-%{_datadir}/pixmaps/*.xpm
+%{_datadir}/pixmaps/*.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/qmt_rgb2pct/translations/*qm
 %{_mandir}/man1/*.1*
