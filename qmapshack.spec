@@ -4,7 +4,7 @@
 Summary:	GPS mapping and management tool
 Name:		qmapshack
 Version:	1.16.1
-Release:	2
+Release:	3
 Group:		Communications
 License:	GPLv3+
 URL:		https://github.com/Maproom/%{name}/wiki
@@ -12,6 +12,7 @@ Source0:	https://github.com/Maproom/qmapshack/archive/V_%{version}/%{name}-%{ver
 
 BuildRequires:	cmake
 BuildRequires:	ninja
+BuildRequires:	cmake(alglib)
 BuildRequires:	cmake(proj)
 BuildRequires:	cmake(QuaZip-Qt5)
 BuildRequires:	cmake(Qt5Core)
@@ -28,8 +29,9 @@ BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	qt5-assistant
 BuildRequires:	routino-devel
-# unpackaged yet
-#BuildRequires: alglib-devel
+
+Recommends:	routino
+Recommends:	qmaptool
 
 %description
 QMapShack provides a versatile tool for GPS maps in GeoTiff format as well as
@@ -37,34 +39,57 @@ Garmin's img vector map format. You can also view and edit your GPX tracks.
 QMapShack is the successor of QLandkarteGT.
 
 Main features:
-- use of several work-spaces
-- use several maps on a work-space
-- handle data project-oriented
-- exchange data with the device by drag-n-drop
+ - use of several work-spaces
+ - use several maps on a work-space
+ - handle data project-oriented
+ - exchange data with the device by drag-n-drop
 
 %files
-%doc LICENSE changelog.txt
-%{_bindir}/*
+%license LICENSE
+%doc changelog.txt
+%{_bindir}/%{name}
 %{_datadir}/%{name}
-%{_iconsdir}/hicolor/*/apps/*.png
-%{_datadir}/pixmaps/*.png
-%{_datadir}/applications/*.desktop
-%{_datadir}/qmaptool/translations/*qm
+%{_iconsdir}/hicolor/*/apps/QMapShack.png
+%{_datadir}/pixmaps/QMapShack.png
+%{_datadir}/applications/%{name}.desktop
+%{_docdir}/HTML/QMSHelp.q??
+%{_mandir}/man1/%{name}.*
+
+#---------------------------------------------------------------------------
+
+%package -n qmaptool
+Summary: Create raster maps from paper map scans
+
+%description -n qmaptool
+This is a tool to create raster maps from paper map scans. QMapTool can be
+considered as a front-end to the well-known GDAL package. It complements
+QMapShack.
+
+%files -n qmaptool
+%{_bindir}/qmaptool
+%{_bindir}/qmt_*
+%{_datadir}/qmaptool/
 %{_datadir}/qmt_rgb2pct/translations/*qm
-%{_mandir}/man1/*.1*
-%{_docdir}/HTML/*qch
-%{_docdir}/HTML/*qhc
+%{_datadir}/icons/hicolor/*/apps/QMapTool.png
+%{_datadir}/pixmaps/QMapTool.png
+%{_datadir}/applications/qmaptool.desktop
+%{_datadir}/doc/HTML/QMTHelp.q??
+%{_mandir}/man1/qmaptool.*
+%{_mandir}/man1/qmt_*.*
 
 #---------------------------------------------------------------------------
 
 %prep
 %autosetup -p1 -n %{name}-V_%{version}
 
+# remove bundled libs
+rm -fr 3rdparty/alglib
+
 %build
 #FIXME: without this link fails on znver1
 export CXXFLAGS="$CXXFLAGS -O2"
 %cmake \
-	-DBUILD_SHARED_LIBS:BOOL=OFF \
+	-DBUILD_SHARED_LIBS:BOOL=ON \
 	-G Ninja
 %ninja_build
 
