@@ -1,10 +1,12 @@
-# For debugsource package
-%global _empty_manifest_terminate_build 0
+#FIXME: without this link fails on znver1
+%ifnarch %{ix86}
+%global optflags %{optflags} -O2
+%endif
 
 Summary:	GPS mapping and management tool
 Name:		qmapshack
 Version:	1.16.1
-Release:	3
+Release:	4
 Group:		Communications
 License:	GPLv3+
 URL:		https://github.com/Maproom/%{name}/wiki
@@ -58,7 +60,8 @@ Main features:
 #---------------------------------------------------------------------------
 
 %package -n qmaptool
-Summary: Create raster maps from paper map scans
+Summary:	Create raster maps from paper map scans
+Requires:	gdal
 
 %description -n qmaptool
 This is a tool to create raster maps from paper map scans. QMapTool can be
@@ -86,8 +89,6 @@ QMapShack.
 rm -fr 3rdparty/alglib
 
 %build
-#FIXME: without this link fails on znver1
-export CXXFLAGS="$CXXFLAGS -O2"
 %cmake \
 	-DBUILD_SHARED_LIBS:BOOL=ON \
 	-G Ninja
