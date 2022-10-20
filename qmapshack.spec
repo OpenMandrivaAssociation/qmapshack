@@ -33,7 +33,8 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	qt5-assistant
 BuildRequires:	routino-devel
 
-Requires:	proj-data = %{version}-%{release}
+Requires:	proj-data
+
 Recommends:	routino
 Recommends:	qmaptool
 
