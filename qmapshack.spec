@@ -6,7 +6,7 @@
 Summary:	GPS mapping and management tool
 Name:		qmapshack
 Version:	1.16.1
-Release:	5
+Release:	6
 Group:		Communications
 License:	GPLv3+
 URL:		https://github.com/Maproom/%{name}/wiki
@@ -28,6 +28,7 @@ BuildRequires:	cmake(Qt5WebEngineWidgets)
 BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	pkgconfig(gdal)
 BuildRequires:	pkgconfig(libjpeg)
+BuildRequires:  pkgconfig(openssl)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	qt5-assistant
 BuildRequires:	routino-devel
