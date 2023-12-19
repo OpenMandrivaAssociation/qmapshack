@@ -5,8 +5,8 @@
 
 Summary:	GPS mapping and management tool
 Name:		qmapshack
-Version:	1.17.0
-Release:	2
+Version:	1.17.1
+Release:	1
 Group:		Communications
 License:	GPLv3+
 URL:		https://github.com/Maproom/qmapshack/wiki
